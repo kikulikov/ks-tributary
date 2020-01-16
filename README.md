@@ -1,7 +1,8 @@
-# Kafka Streams Financial Confluent PS
+[![Build Status](https://cloud.drone.io/api/badges/astubbs/ks-tributary/status.svg)](https://cloud.drone.io/astubbs/ks-tributary)
+
+
+# Kafka Streams Reference App Confluent PS
 Confluent Reference Application
-
-
 
 ## Features
 [UNRELEASED]
