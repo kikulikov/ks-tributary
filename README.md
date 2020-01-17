@@ -37,12 +37,12 @@ Realistic implementation of a full real Kafka Streams application and stream pro
 ### Unit testing
 - Demonstration of Time model decoupling for test
 - Demonstration of AssertJ powerful assertions
--- here
--- here
+  - here
+  - here
 
 ### Integration testing
 - Model hydration using human readable data from JavaFaker[] project
--- Deterministic generation of series of random data, useful for larger integration tests
+  - Deterministic generation of series of random data, useful for larger integration tests
 - TestContainers for Integration Testing with real Kafka brokers.
 - CI service integration: Travis, CircleCI, Drone (drone not working with Docker in Docker (i.e. TestContainers not working))
 - JSR Money integration
@@ -64,7 +64,9 @@ Realistic implementation of a full real Kafka Streams application and stream pro
 - Realtime out of order recalculation of data aggregation in state dependent buckets
 - Massive scale question and answer quiz show of just in time answer discovery 
 - Compound key query demonstration / data demoralisation (e.g. Invoice reconstruction from Orders and Order Items)
-- 
+- Yearly aggregator by date (think April 5th Financial years)
+  - Normal window computations can only run against fixed size windows (e.g. not calenda dates)
+  - Extending to also do monthly dates is an easy modification 
 
 ### Software Structure
 - External Interactive Query example on Qurkus[] and GraalVM[]
@@ -84,15 +86,15 @@ Dagger
   - Financial snap set precomputation
   - Simpler approach that's centralised performance wise
 
-... More sophisticated fully distributed
-.... Custom state store intermediate level demonstration
-. Unit testing coverage
-.. Guice test wiring 
-. Separated Integration testing
-.. Kafka ContainerTests
-. Avro message model sizing analysis
-.. Raw bin-packed vs GZipped vs Json
-. Java Science Units and Quantities use
+    - More sophisticated fully distributed
+        - Custom state store intermediate level demonstration
+- Unit testing coverage
+  - Guice test wiring 
+- Separated Integration testing
+  - Kafka ContainerTests
+- Avro message model sizing analysis
+  - Raw bin-packed vs GZipped vs Json
+- Java Science Units and Quantities use
 
 ## Development
 
