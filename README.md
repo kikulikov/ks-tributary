@@ -1,14 +1,80 @@
 [![Build Status](https://cloud.drone.io/api/badges/astubbs/ks-tributary/status.svg)](https://cloud.drone.io/astubbs/ks-tributary)
+[![Keep a Changelog v1.1.0 badge][changelog-badge]][changelog]
+ 
+ [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+ 
 
-
-# Kafka Streams Reference App Confluent PS
+# KS-Tributary; A Kafka Streams Reference App
 Confluent Reference Application
 
+Realistic implementation of a full real Kafka Streams application and stream processing logic.
+
 ## Features
-[UNRELEASED]
-JSR Money integration
-0.7
-0.6
+
+### Stream Processing
+
+#### Generic
+- Realtime delta calculation (e.g. produce derived delta messages from database CDC full state messages)
+- Cached system configuration lookup with realtime updates
+- Realtime fan out of topic data onto _communication channels_ like web sockets
+- Dynamic Avro wrapper system to extend Avro objects with custom code without modifying generated code, integrated with Avro Serdes 
+
+#### Finance
+- Realtime calculation of windows 
+ - Three topologies
+   - Financial snap set precomputation
+   - Simpler approach that's centralised performance wise
+     - More sophisticated fully distributed
+     - Custom state store intermediate level demonstration
+- Simple high low bar calculation
+- Back loading of data from previous buckets
+ 
+
+#### Chat
+- Transcript generation
+
+
+### Unit testing
+- Demonstration of Time model decoupling for test
+- Demonstration of AssertJ powerful assertions
+-- here
+-- here
+
+### Integration testing
+- Model hydration using human readable data from JavaFaker[] project
+-- Deterministic generation of series of random data, useful for larger integration tests
+- TestContainers for Integration Testing with real Kafka brokers.
+- CI service integration: Travis, CircleCI, Drone (drone not working with Docker in Docker (i.e. TestContainers not working))
+- JSR Money integration
+- Avro message sizing analysis - i.e. how big is my data when it's bin packed and compressed? Compared with Gzipped vs Zstd vs Json?
+- Demonstration of asynchronous testing using Awaitility[]
+- 
+
+### Software Structure
+- Guice (dynamic) and Dagger (static) dependency injection examples
+- Dagger
+- Java Money library demonstration
+- Java Units of Measure library demonstration (statically typed Scientific units combination library)
+- Lombok use (make Java more tolerable)
+- Avro IDL vs AVSC model generation demonstration
+
+
+## Features on their way...
+### Stream Processing
+- Realtime out of order recalculation of data aggregation in state dependent buckets
+- Massive scale question and answer quiz show of just in time answer discovery 
+- Compound key query demonstration / data demoralisation (e.g. Invoice reconstruction from Orders and Order Items)
+- 
+
+### Software Structure
+- External Interactive Query example on Qurkus[] and GraalVM[]
+
+
+
+[0.7]
+Dagger
+
+[0.6]
 0.5
 0.4
 0.3
@@ -16,16 +82,16 @@ JSR Money integration
 [0.1]
 - Three topologies
   - Financial snap set precomputation
-  - Simpler approach that's centralised oerformance wise
+  - Simpler approach that's centralised performance wise
 
 ... More sophisticated fully distributed
 .... Custom state store intermediate level demonstration
 . Unit testing coverage
 .. Guice test wiring 
-. Seperated Integration testing
+. Separated Integration testing
 .. Kafka ContainerTests
 . Avro message model sizing analysis
-.. Raw binpacked vs GZipped vs Json
+.. Raw bin-packed vs GZipped vs Json
 . Java Science Units and Quantities use
 
 ## Development
@@ -33,17 +99,13 @@ JSR Money integration
 ### Building
 
 - Requires Lombok plugin for your IDE
- - particularly for the [`val`][val-lombok] system to work.
 
-### Constributing
-
+### Contributing
+Submit a PR for review :)
 
 https://www.conventionalcommits.org/en/v1.0.0/
  [the Angular convention](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
  
- [![Keep a Changelog v1.1.0 badge][changelog-badge]][changelog]
- 
- [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
  
 [changelog]: ./CHANGELOG.md
 [changelog-badge]: https://img.shields.io/badge/changelog-Keep%20a%20Changelog%20v1.1.0-%23E05735
